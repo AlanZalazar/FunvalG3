@@ -1,0 +1,12 @@
+form {
+    align-content: center;
+    border: 1px solid black;
+    height: 800px;
+    width: 500px;
+}
+
+.formulario {
+    height: 770px;
+    width: 470px;
+    border: 1px solid black;
+}
