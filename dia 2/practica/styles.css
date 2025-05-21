@@ -1,0 +1,26 @@
+div.image {
+    display: flex;
+    border: 3px solid;
+    width: 375px;
+    height: 400px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+h2 {
+    color: blue;
+    text-transform: uppercase;
+}
+
+main {
+    margin-left: 25%;
+}
+
+.pie {
+    text-align: right;
+    margin-right: 10%;
+
+}

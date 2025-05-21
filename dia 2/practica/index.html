@@ -6,34 +6,49 @@
     <title>Practica 1</title>
      <style>
     h1 {
-      color: darkblue;
-      font-size: 2.5em;
+      color: rgb(42, 221, 182);
+      font-size: 50px;
+      text-align: center;
     }
-    p {
-      color: #d4b60b;
-      font-size: 18px;
+    p.presentacion {
+      color: #b62f0d;
+      font-size: 25px;
+      text-align: center;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     }
   </style>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
-<body style="background-color: #949599;">
+<body style="background-image: url('images/textura.jpg'); background-size: cover; background-repeat: no-repeat;">
     <header>
         <h1>¡Hola, soy Alan Zalazar!</h1>
-        <img src="./images/perfil.jpg" alt="foto de perfil" height="500px" >
-        <p><strong>Bienvenido</strong> a mi pagina de presentacion, aqui encontraras informacion sobre mi. <br>
-        Esto forma parte del primer proyecto en el dia 2 de Funval, Frontend Web Developer.</p>
+        <div class="image">
+            <img 
+                src="./images/perfil.jpg" 
+                alt="foto de perfil" 
+                height="500px"
+         >
+        </div>
+        <p class="presentacion"><strong>Bienvenido a mi pagina de presentacion, aqui encontraras informacion sobre mi. <br>
+        Esto forma parte del primer proyecto en el dia 2 de Funval, <em>Frontend Web Developer</em>.</strong></p>
     </header>
     <hr>
     <main>
-        <h2>Sobre mi</h2>
-        <p>Actualmente estoy estudiando desarrollo web frontend en Funval.</p>
-        <h3>Mis habilidades</h3>
+        <h2><u>Sobre mi </u>:</h2>
+        <p>Tengo 29 años, soltero. <br>
+            Me gradué de una secundaria tecnica con titulo de tecnico electromecanico. <br>
+            Luego hice un curso de desarrollador web fullstack donde aprendi las bases para hacer una pagina web desde cero. <br>
+            Posteriormete trabajé como cajero de supermercado, decidi renunciar porque me consumia mucho tiempo sin posibilidad de progresar. <br>
+            Actualmente estoy estudiando desarrollo web frontend en Funval para consolidar conocimientos previos y perfeccionarme.<br>
+            Mi objetivo al terminar el curso es conseguir trabajo de programador lo antes posible, tambien me gustaria aprender el idioma ingles en un nivel elevado.
+        </p>
+        <h3>Mis habilidades:</h3>
         <ul>
-            <li>Desarrollor Web Fullstack</li>
-            <li>Tecnico electromecanico</li>
-            <li>OTP Malzahar en lolcito (carril medio)</li>
+            <li>Desarrollor Web Fullstack.</li>
+            <li>Tecnico electromecanico.</li>
+            <li>OTP Malzahar en lolcito (carril medio).</li>
         </ul>
-        <h3>Mis redes sociales</h3>
+        <h3>Mis redes sociales:</h3>
         <ol>
             <li><a href="https://www.facebook.com/alan.zalazar.9047" target="_blank">Facebook</a></li>
             <li><a href="https://www.linkedin.com/in/alanz04/" target="_blank">Linkedin</a></li>
@@ -41,7 +56,7 @@
         </ol>
     </main>
     <footer>
-        <p>Gracias por visitar mi pagina.</p>
+        <p class="pie">Gracias por visitar mi pagina.</p>
     </footer>
     
 </body>
