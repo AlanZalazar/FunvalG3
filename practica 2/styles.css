@@ -7,18 +7,39 @@ body {
     position: relative;
 }
 .back {
-    position: absolute;
-    padding: 30px;
-    top: 15px;
-    left: 15px;
-    
+  position: absolute;
+  padding: 15px 30px;
+  top: 15px;
+  left: 15px;
+  border: none;
+  color: white;
+  background: linear-gradient(270deg, #00c6ff, #7d5fff, #00c6ff);
+  background-size: 600% 600%;
+  animation: gradientMove 5s ease infinite;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Hover: redondo y color fijo */
+.back:hover {
+  border-radius: 50px;
+  background: #7d5fff; /* color fijo violeta al pasar el mouse */
+  animation: none;
+}
+
+/* Animación del degradado dinámico */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 form {
     background-color: rgba(22, 0, 46, 0.543);
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.845);
     height: 800px;
     width: 500px;
 }
@@ -111,6 +132,11 @@ input[type="checkbox"] {
 .icoimage {
     height: 70px;
     border: 1px solid aqua;
+    transition: all 0.3s ease;
+}
+.icoimage:hover {
+  border: 2px solid aqua;
+  box-shadow: 0 0 5px 2px aqua;
 }
 h2 {
     color: aliceblue;
