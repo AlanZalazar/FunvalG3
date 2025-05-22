@@ -4,6 +4,14 @@ body {
     align-items: center;
     background-image: url("./images/fondo.jpg");
     height: 100vh;
+    position: relative;
+}
+.back {
+    position: absolute;
+    padding: 30px;
+    top: 15px;
+    left: 15px;
+    
 }
 form {
     background-color: rgba(22, 0, 46, 0.543);
