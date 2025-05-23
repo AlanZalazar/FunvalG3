@@ -1,5 +1,5 @@
 body {
-    background-image: url("https://i.pinimg.com/originals/06/97/6d/06976d8be9eda5e9c78a69ab0e57354d.gif");
+    background-image: url("https://motionbgs.com/dl/gif/1397");
     background-repeat: no-repeat;
     background-size: cover;        /* Hace que ocupe toda la pantalla */
     background-position: center;   /* Centra la imagen */
@@ -9,15 +9,19 @@ body {
 }
 
 h1 {
-    text-align: center;
+    
     text-decoration-line: underline;
+    margin-left: 5%;
 }
-
+ul {
+  width: 200px;
+  margin-left: 5%;
+}
 li {
   background-color: rgb(52, 17, 85);
   padding: 10px 20px;
   margin: 10px auto; 
-  width: fit-content;
+  width: auto;
   border-radius: 8px;
   cursor: pointer;
   list-style: none;

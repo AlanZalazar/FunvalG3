@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica 3</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>DIRECTORIO DE HEROES</h1>
+    </header>
+    <nav>
+        <ul class="list-navBar">
+            <a href="https://alanzalazar.github.io/FunvalG3/"><li class="cont-navBar">Home</li></a>
+            <a href="https://heroaca.com/character/chara_group01/01-01/"><li class="cont-navBar">About</li></a>
+            <a href="https://alanzalazar.github.io/FunvalG3/practica%201/"><li class="cont-navBar">Contact</li></a>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero">
+            <div class="izuku">
+                <h2>IZUKU MIDORIYA</h2>
+            <p class="pizuku">Nació sin <strong>'singularidad'</strong>, pero fue descubierto por su potencial como héroe oculto dentro de él, y heredó la <strong>'singularidad'</strong> de One For All de All Might. Su voluntad de salvar a las personas es más fuerte que la de cualquier otra persona. Puede utilizar las múltiples <strong>'singularidades' </strong>de los anteriores sucesores de <strong>'One For All'</strong>.</p>
+            <button class="boton" onclick="cambiarImagen()">Cambiar imagen</button>
+            </div>
+            
+            <div class="viñeta">
+                <img id="miImagen" src="./images/izuku1.webp" alt="Imagen rotativa"> <!--*La imagen debe tener un ancho de 200px y estar alineada en el centro verticalmente y a la derecha horizontalmente.-->
+            </div>
+            <script>
+    const imagenes = [
+      "./images/izuku1.webp",
+      "./images/izuku2.webp",
+      "./images/izuku3.webp",
+      "./images/izuku4.webp"
+    ];
+
+    let indice = 0;
+
+    function cambiarImagen() {
+      indice = (indice + 1) % imagenes.length;
+      document.getElementById("miImagen").src = imagenes[indice];
+    }
+  </script>
+        </section>
+        <section class="caracteristicas">
+            <h2 class="personalidad">PERSONALIDAD</h2>
+            <div class="bordecito">
+                <p class="descripcion">Izuku Midoriya, también conocido como Deku, es un personaje de personalidad noble, empática y determinada. Es muy analítico, siempre observando y estudiando a otros héroes para mejorar. Aunque al principio es inseguro y tímido, demuestra una gran valentía y un fuerte sentido de justicia. Su perseverancia y deseo genuino de ayudar a los demás lo convierten en un héroe admirable y en una fuente de inspiración para quienes lo rodean.</p>
+            <ul class="datos">
+                <li> <strong>Nombre de heroe</strong> : deku</li>
+                <li> <strong>Seiyuu:</strong>  Daiki Yamashita</li>
+                <li> <strong>Fecha de nacimiento:</strong>  15 de julio</li>
+                <li> <strong>Altura:</strong>  166 cm</li>
+                <li> <strong>Singularidad:</strong>  One for All</li>
+            </ul>
+            <p class="oneForAll">One For All es una poderosa y única habilidad en My Hero Academia. Se trata de un quirk heredable que acumula fuerza con cada portador, combinando su poder con el de los anteriores. Otorga una fuerza sobrehumana, velocidad y resistencia extremas. Su propósito principal es derrotar a All For One, el villano que dio origen a su existencia. Es un símbolo de esperanza y responsabilidad, pasado de héroe en héroe hasta llegar a Izuku Midoriya.</p>
+            </div>
+            
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 FUNVAL. Todos los derechos reservados.</p>
+
+<!--Este contenido, incluyendo pero no limitándose a textos, imágenes,
+ gráficos, logotipos y diseños, está protegido por derechos de autor y
+  otras leyes de propiedad intelectual. Queda estrictamente prohibido
+   su reproducción, distribución, modificación, exhibición pública o
+    transmisión, total o parcial, sin el permiso previo y por escrito
+     de [Nombre de la Empresa o Autor].-->
+    </footer>
+    
+</body>
+</html>
