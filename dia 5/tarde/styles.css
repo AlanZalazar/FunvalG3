@@ -1,0 +1,157 @@
+.card {
+  border: 1px solid red;
+  height: 300px;
+  width: 300px;
+  margin: 20px;
+
+}
+body{
+  background-color: bisque;
+}
+
+.card-container {
+  display: flex;
+  
+  width: 75%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.vista-container{
+  display: flex;
+  
+  width: 500px;
+  flex-wrap: wrap;
+  align-items: first baseline;
+  justify-content:center ;
+}
+
+.vista {
+  border: 1px solid red;
+  height: 1000px;
+  width: 400px;
+  margin: 20px;
+}
+
+main{
+  display: flex;
+}
+
+.image-card{
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  
+}
+
+.image-vista {
+  max-width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  main {
+    flex-direction: column;
+  }
+  body{
+  background-color: darkseagreen;
+}
+
+  .card-container {
+  display: flex;
+  
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-vista{
+  width: 100%;
+}
+
+  .vista {
+  border: 1px solid red;
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+
+}
+
+.vista-container {
+  display: flex;
+  
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+  .card {
+  border: 1px solid red;
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+
+  
+}
+}
+
+@media (max-width: 600px) {
+  body{
+  background-color: rgb(220, 175, 158);
+}
+  .card {
+    width: 100%;
+    height: 400px;
+    width: 400px;
+    margin: 10px auto;
+  }
+
+  .vista {
+    width: 100%;
+    height: 400px;
+    width: 400px;
+    margin: 10px auto;
+  }
+
+  .image-vista{
+    width: 100%;
+  }
+  .vista-container {
+      display: flex;
+  
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  }
+
+
+
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+header {
+  justify-content: center;
+  background-color: rgba(0, 146, 98, 0.163);
+  margin: 0;
+}
+
+
+
+

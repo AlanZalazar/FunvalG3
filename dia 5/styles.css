@@ -1,0 +1,30 @@
+* {
+    margin: 0%;
+}
+header{
+    border: 1px solid red;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+h1{
+    padding: 8px;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+    list-style-type: none;
+    padding: 8px;
+}
+.images {
+    border: 1px solid blue;
+    width: 75vh;
+    height: 700px;
+   
+}
+.noticias {
+    border: 1px solid black;
+    width: 25vh;
+    height: 3px;
+}

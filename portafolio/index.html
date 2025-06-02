@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+<body class="bg-dark text-light font-sans ">
+  <header class="flex ">
+    <div class="logo"><span class="a-logo">A</span><span class="z-logo">Z</span></div>
+    <nav class="fixed top-0 w-full">
+      <ul class="flex justify-center items-center gap-4">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+      </ul>
+    </nav>
+    <button id="boton-contacto" class="border rounded-2xl justify-center items-center">
+      <a id="text-boton-contacto" class="flex gap-4" href="https://alanzalazar.github.io/FunvalG3/practica%201/">
+        Contacto
+        <svg id="icono-contacto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </a>
+    </button>
+  </header>
+
+  <main>
+    <section id="inicio" class="min-h-screen flex flex-col items-center  text-center px-6 bg-gradient-main"> <!-- ocupa toda la pantalla -->
+      
+     <div class="nombre">
+          <h1 class="text-4xl sm:text-5xl font-bold mb-2">¡Hola! Soy <span class="text-alan-zalazar">Alan Zalazar</span></h1>
+          <p class="text-softGray text-lg sm:text-xl mb-6">Desarrollador Full Stack </p>
+     </div>
+      <button class="boton-proyectos">
+          <a href="https://alanzalazar.github.io/FunvalG3/" >
+      Ver proyectos
+    </a>
+      </button>
+    
+    
+    <img class="imagen-perfil" src="./assets/perfil.png" alt="perfil">
+    </section>
+
+    <section id="habilidades" class="min-h-screen justify-center text-center items-center grid">
+      <h2 class="text-2xl font-semibold text-lime-300">¿Quien soy?</h2>
+      <p>Soy Alan, desarrollador en formación con conocimientos en 
+        fullstack y actualmente enfocado en frontend. Vengo del área 
+        técnica (electromecánica) y encontré en la programación una 
+        forma de crear, automatizar y dar vida a ideas que antes solo 
+        imaginaba. <br>
+        Me apasiona todo lo relacionado con la tecnología, desde la 
+        inteligencia artificial hasta la automatización del hogar. 
+        Disfruto aprender, experimentar y mejorar constantemente. 
+        Aunque a veces dudo de mí mismo, sé que con trabajo y 
+        dedicación puedo convertirme en un gran aporte para cualquier 
+        equipo. <br>
+        Este portafolio es parte de ese camino.</p>
+      <h2 class="text-2xl font-semibold text-lime-300">Mis Habilidades</h2>
+
+    </section>
+
+    <section id="proyectos" class="h-screen bg-green-100">
+      <h2 class="text-2xl font-semibold">Proyectos</h2>
+    </section>
+
+    <section id="contacto" class="h-screen bg-yellow-100">
+      <h2 class="text-2xl font-semibold">Contacto</h2>
+    </section>
+  </main>
+</body>
+
+</html>
