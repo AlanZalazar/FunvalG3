@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Cuenta bancaria</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cuenta Bancaria</h1>
+      <p><strong>Saldo actual:</strong> $<span id="saldo">0</span></p>
+
+      <div class="acciones">
+        <input type="number" id="monto" placeholder="Ingrese monto" />
+        <button onclick="ingresarDinero()">Ingresar</button>
+        <button onclick="retirarDinero()">Retirar</button>
+      </div>
+
+      <p id="mensaje" class="mensaje"></p>
+    </div>
+
+    <script src="./main.js" defer></script>
+  </body>
+</html>

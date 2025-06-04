@@ -25,7 +25,7 @@ while (repetir) {
       } while (isNaN(lado));
 
       let areaCuadrado = lado * lado;
-      alert(`Perfecto, el area de su Cuadrado es de: ${areaCuadrado}cm`);
+      alert(`Perfecto, el area de su Cuadrado es de: ${areaCuadrado}cm²`);
       repetir = false;
       break;
     }
@@ -84,7 +84,7 @@ while (repetir) {
       } while (isNaN(alturaTriangulo));
 
       let areaTriangulo = (baseTriangulo * alturaTriangulo) / 2;
-      alert(`Perfecto, el area de su Triangulo es de: ${areaTriangulo}cm`);
+      alert(`Perfecto, el area de su Triangulo es de: ${areaTriangulo}cm²`);
       repetir = false;
       break;
     }
