@@ -5,14 +5,12 @@ export function renderSkills() {
   section.id = "skills";
   section.className = "p-8";
 
-  // Función para generar la barra de progreso SVG
   const renderProgressBar = (nivel) => {
     const levels = {
       avanzado: 90,
       intermedio: 60,
       básico: 30,
     };
-
     const percentage = levels[nivel.toLowerCase()] || 30;
 
     return `
@@ -28,100 +26,75 @@ export function renderSkills() {
     `;
   };
 
-  // Obtener categorías y niveles únicos para los filtros
   const categorias = [...new Set(habilidades.map((h) => h.categoria))];
   const niveles = ["Avanzado", "Intermedio", "Básico"];
 
-  // Crear elementos de filtro (sin flechas)
   const filtros = `
-    <div class="filtros mb-6 md:mb-0 w-full">
-      <div class="flex flex-wrap gap-2 justify-center md:flex-col md:gap-3">
-        <div class="dropdown relative w-full">
-          <button class="bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-full w-full text-center md:text-left">
-            Nivel
-          </button>
-          <div class="dropdown-menu absolute hidden bg-black bg-opacity-90 rounded-lg shadow-lg z-10 mt-1 w-full p-2 border border-slate-700">
-            ${niveles
-              .map(
-                (nivel) => `
-              <button class="filtro-nivel w-full text-left px-4 py-2 hover:bg-slate-700 rounded-md" data-nivel="${nivel.toLowerCase()}">
-                ${nivel}
+    <div class="filtros w-full mb-6">
+      <div class="flex flex-row gap-3 justify-center ">
+        ${["nivel", "categoria"]
+          .map((type) => {
+            const items = type === "nivel" ? niveles : categorias;
+            return `
+            <div class="dropdown relative flex-1 md:flex-none md:w-48">
+              <button class="bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-full w-full text-center">
+                ${type.charAt(0).toUpperCase() + type.slice(1)}
               </button>
-            `
-              )
-              .join("")}
-            <button class="filtro-limpiar w-full text-left px-4 py-2 text-lime-400 hover:bg-slate-700 rounded-md mt-2">
-              Limpiar filtros
-            </button>
-          </div>
-        </div>
-        
-        <div class="dropdown relative w-full">
-          <button class="bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-full w-full text-center md:text-left">
-            Categoría
-          </button>
-          <div class="dropdown-menu absolute hidden bg-black bg-opacity-90 rounded-lg shadow-lg z-10 mt-1 w-full p-2 border border-slate-700">
-            ${categorias
-              .map(
-                (cat) => `
-              <button class="filtro-categoria w-full text-left px-4 py-2 hover:bg-slate-700 rounded-md" data-categoria="${cat}">
-                ${cat}
-              </button>
-            `
-              )
-              .join("")}
-            <button class="filtro-limpiar w-full text-left px-4 py-2 text-lime-400 hover:bg-slate-700 rounded-md mt-2">
-              Limpiar filtros
-            </button>
-          </div>
-        </div>
+              <div class="dropdown-menu absolute hidden bg-black bg-opacity-90 rounded-lg shadow-lg z-10 mt-1 w-full p-2 border border-slate-700">
+                ${items
+                  .map(
+                    (i) => `
+                  <button class="filtro-${type} w-full text-left px-4 py-2 hover:bg-slate-700 rounded-md" data-${type}="${i.toLowerCase()}">
+                    ${i}
+                  </button>`
+                  )
+                  .join("")}
+                <button class="filtro-limpiar w-full text-left px-4 py-2 text-lime-400 hover:bg-slate-700 rounded-md mt-2">
+                  Limpiar filtros
+                </button>
+              </div>
+            </div>`;
+          })
+          .join("")}
       </div>
     </div>
   `;
 
   const cv = `
-    <div class="cv w-full md:w-[90%] aspect-square md:aspect-[1/1.2] grid p-4 bg-slate-800 rounded text-center mx-auto">
+    <div class="cv w-full md:w-[90%] aspect-square grid p-4 bg-slate-800 rounded text-center justify-center items-center mx-auto">
       <h1 class="text-6xl md:text-7xl font-semibold text-green-500">4</h1>
-      <p class="font-semibold md:text-lg">Años de experiencia trabajando</p>
-      <a
-        href="./assets/curriculum.pdf"
-        target="_blank"
-        class="bg-lime-500 hover:bg-lime-700 text-black hover:text-white font-semibold py-2 px-4 rounded-full shadow w-[80%] mx-auto flex justify-center items-center md:text-lg"
-      >
+      <p class="font-semibold md:text-5xl">Años de experiencia trabajando</p>
+      <a href="./assets/curriculum.pdf" target="_blank"
+         class="bg-lime-500 hover:bg-lime-700 text-black hover:text-white font-semibold py-2 px-4 rounded-full shadow w-[80%] mx-auto flex justify-center items-center md:text-lg">
         Descargar CV
       </a>
     </div>
   `;
 
   section.innerHTML = `
-    <h3 class="text-3xl text-green-500 font-semibold mb-4 text-center p-8">Habilidades</h3>
-    
-    <!-- Filtros para móvil (arriba de todo) -->
-    <div class="block w-full">
-      ${filtros}
-    </div>
-    
-    <div class="md:flex gap-6 items-start w-full">
+    <h3 class="text-3xl text-green-500 font-semibold mb-6 text-center">Habilidades</h3>
+    ${filtros}
+    <div class="md:flex gap-6 w-full">
       <div class="w-full md:w-[60%]">
-        <div class="carditas grid grid-cols-2 md:grid-cols-4 gap-4 w-[80%] mx-auto">
+        <div class="carditas grid grid-cols-2 md:grid-cols-4 gap-4 w-full md:w-[90%] mx-auto">
           ${habilidades
             .map(
               (h) => `
-            <div class="skill-card bg-slate-800 p-3 md:p-2 rounded-lg shadow-md text-center cursor-pointer h-40 md:h-32 flex flex-col justify-center items-center" 
+            <div class="skill-card bg-slate-800 p-4 md:p-3 rounded-lg shadow-md text-center cursor-pointer min-h-48 md:min-h-52 transition-all duration-300 flex flex-col justify-center items-center overflow-hidden"
                  data-expanded="false"
-                 data-nivel="${h.nivel.toLowerCase()}" 
-                 data-categoria="${h.categoria}">
-              <div class="normal-view justify-between gap-8">
+                 data-nivel="${h.nivel.toLowerCase()}"
+                 data-categoria="${h.categoria.toLowerCase()}">
+              <div class="normal-view flex flex-col justify-between items-center h-full w-full">
                 <img src="${h.icon}" alt="${
                 h.nombre
-              }" class="h-10 md:h-8 mx-auto mb-2" />
-                <p class="font-medium md:text-sm">${h.nombre}</p>
+              }" class="w-[80%] object-contain" />
+                <p class="font-medium md:text-sm px-2">${h.nombre}</p>
               </div>
-              <div class="expanded-view hidden flex flex-col justify-center items-center gap-2 text-lime-400 w-full">
+              <div class="expanded-view hidden flex flex-col justify-center items-center gap-2 text-lime-400 w-full h-full">
                 <p class="font-bold mb-1 md:text-sm">${h.nombre}</p>
                 <img src="${h.icon}" alt="${
                 h.nombre
-              }" class="h-16 md:h-12 mx-auto my-1" />
+              }" class="h-16 md:h-14 mx-auto my-1 object-contain" />
                 ${renderProgressBar(h.nivel)}
                 <p class="text-sm">${h.categoria}</p>
               </div>
@@ -131,21 +104,16 @@ export function renderSkills() {
             .join("")}
         </div>
       </div>
-      
-      <!-- Contenedor para filtros y CV en desktop -->
-      <div class="w-full md:w-[40%] mt-4 flex flex-col items-center gap-6">
-        <!-- Filtros para desktop (arriba del CV) -->
-        <div class="hidden md:block w-full">
-          ${filtros}
-        </div>
+      <div class="hidden md:flex md:w-[40%] flex-col justify-center items-center">
         ${cv}
       </div>
     </div>
+    <div class="md:hidden mt-6 flex justify-center items-center">
+      ${cv}
+    </div>
   `;
 
-  // Manejar el click en las cards
   let currentlyExpanded = null;
-
   section.querySelectorAll(".skill-card").forEach((card) => {
     card.addEventListener("click", () => {
       const normalView = card.querySelector(".normal-view");
@@ -159,10 +127,12 @@ export function renderSkills() {
       }
 
       if (currentlyExpanded) {
-        const prevNormal = currentlyExpanded.querySelector(".normal-view");
-        const prevExpanded = currentlyExpanded.querySelector(".expanded-view");
-        prevNormal.classList.remove("hidden");
-        prevExpanded.classList.add("hidden");
+        currentlyExpanded
+          .querySelector(".normal-view")
+          .classList.remove("hidden");
+        currentlyExpanded
+          .querySelector(".expanded-view")
+          .classList.add("hidden");
       }
 
       normalView.classList.add("hidden");
@@ -171,14 +141,11 @@ export function renderSkills() {
     });
   });
 
-  // Manejar dropdowns
   section.querySelectorAll(".dropdown").forEach((dropdown) => {
     const button = dropdown.querySelector("button");
     const menu = dropdown.querySelector(".dropdown-menu");
-
     button.addEventListener("click", (e) => {
       e.stopPropagation();
-      // Cerrar otros dropdowns abiertos
       document.querySelectorAll(".dropdown-menu").forEach((m) => {
         if (m !== menu) m.classList.add("hidden");
       });
@@ -186,38 +153,45 @@ export function renderSkills() {
     });
   });
 
-  // Cerrar dropdowns al hacer click fuera
   document.addEventListener("click", () => {
     section.querySelectorAll(".dropdown-menu").forEach((menu) => {
       menu.classList.add("hidden");
     });
   });
 
-  // Manejar filtros
-  section
-    .querySelectorAll(".filtro-nivel, .filtro-categoria")
-    .forEach((button) => {
-      button.addEventListener("click", () => {
-        const nivel = button.dataset.nivel;
-        const categoria = button.dataset.categoria;
+  section.querySelectorAll(".filtro-nivel").forEach((button) => {
+    button.addEventListener("click", () => {
+      const nivel = button.dataset.nivel;
 
-        section.querySelectorAll(".skill-card").forEach((card) => {
-          const cardNivel = card.dataset.nivel;
-          const cardCategoria = card.dataset.categoria;
+      section.querySelectorAll(".skill-card").forEach((card) => {
+        const cardNivel = card.dataset.nivel;
 
-          if (
-            (nivel && cardNivel.includes(nivel)) ||
-            (categoria && cardCategoria === categoria)
-          ) {
-            card.classList.remove("hidden");
-          } else {
-            card.classList.add("hidden");
-          }
-        });
+        if (cardNivel === nivel) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
       });
     });
+  });
 
-  // Limpiar filtros
+  // Filtro por categoría
+  section.querySelectorAll(".filtro-categoria").forEach((button) => {
+    button.addEventListener("click", () => {
+      const categoria = button.dataset.categoria;
+
+      section.querySelectorAll(".skill-card").forEach((card) => {
+        const cardCategoria = card.dataset.categoria;
+
+        if (cardCategoria === categoria) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    });
+  });
+
   section.querySelectorAll(".filtro-limpiar").forEach((button) => {
     button.addEventListener("click", () => {
       section.querySelectorAll(".skill-card").forEach((card) => {

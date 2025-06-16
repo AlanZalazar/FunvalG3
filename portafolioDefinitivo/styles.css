@@ -27,10 +27,7 @@
 
 @media (min-width: 768px) {
   .cv {
-    padding-top: 100px;
-    padding-bottom: 100px;
     gap: 50px;
-    margin-top: 500px;
     margin-left: -50px;
   }
 
@@ -47,23 +44,4 @@
 
 .skill-card:hover {
   border: 1px solid greenyellow;
-}
-
-/* Modo oscuro manual (sin depender de Tailwind) */
-.dark-mode body {
-  background-color: #1a202c !important;
-  color: #e2e8f0 !important;
-}
-
-.dark-mode nav {
-  background-color: #2d3748 !important;
-}
-
-.dark-mode .text-gray-300 {
-  color: #cbd5e0 !important;
-}
-
-/* Asegúrate de que los íconos sean visibles en ambos modos */
-.dark-mode .theme-btn {
-  color: #e2e8f0 !important;
 }
