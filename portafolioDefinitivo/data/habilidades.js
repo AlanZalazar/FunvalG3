@@ -1,0 +1,110 @@
+export const habilidades = [
+  {
+    nombre: "HTML",
+    icon: "./assets/html.png",
+    nivel: "Avanzado", // Niveles: Avanzado, Intermedio, Básico
+    categoria: "Frontend",
+  },
+  {
+    nombre: "CSS",
+    icon: "./assets/css.png",
+    nivel: "Avanzado",
+    categoria: "Frontend",
+  },
+  {
+    nombre: "JavaScript",
+    icon: "./assets/js.webp",
+    nivel: "Avanzado",
+    categoria: "Frontend",
+  },
+  {
+    nombre: "React",
+    icon: "./assets/react.png",
+    nivel: "Intermedio",
+    categoria: "Frontend",
+  },
+  {
+    nombre: "Node.js",
+    icon: "./assets/nodejs.png",
+    nivel: "Intermedio",
+    categoria: "Backend",
+  },
+  {
+    nombre: "Python",
+    icon: "./assets/python.webp",
+    nivel: "Básico",
+    categoria: "Backend",
+  },
+  {
+    nombre: "SQL",
+    icon: "./assets/sql.png",
+    nivel: "Intermedio",
+    categoria: "Database",
+  },
+  {
+    nombre: "AWS",
+    icon: "./assets/aws.png",
+    nivel: "Básico",
+    categoria: "DevOps",
+  },
+  {
+    nombre: "Tailwind",
+    icon: "./assets/tailwind.png",
+    nivel: "Intermedio",
+    categoria: "Frontend",
+  },
+  {
+    nombre: "PostgreSQL",
+    icon: "./assets/postgresql.png",
+    nivel: "Intermedio",
+    categoria: "Database",
+  },
+  {
+    nombre: "SQLServer",
+    icon: "./assets/sqlserver.png",
+    nivel: "Básico",
+    categoria: "Database",
+  },
+  {
+    nombre: "Git",
+    icon: "./assets/git.png",
+    nivel: "Intermedio",
+    categoria: "Herramientas",
+  },
+  {
+    nombre: "GitHub",
+    icon: "./assets/github.webp",
+    nivel: "Intermedio",
+    categoria: "Herramientas",
+  },
+  {
+    nombre: "Firebase",
+    icon: "./assets/firebase.webp",
+    nivel: "Básico",
+    categoria: "Backend",
+  },
+  {
+    nombre: "Axios",
+    icon: "./assets/axios.png",
+    nivel: "Intermedio",
+    categoria: "Frontend",
+  },
+  {
+    nombre: "Redux",
+    icon: "./assets/redux.png",
+    nivel: "Básico",
+    categoria: "Frontend",
+  },
+  {
+    nombre: "Typescript",
+    icon: "./assets/typescript.png",
+    nivel: "Intermedio",
+    categoria: "Frontend",
+  },
+  {
+    nombre: "Google Sheets",
+    icon: "./assets/googlesheets.png",
+    nivel: "Avanzado",
+    categoria: "Herramientas",
+  },
+];
