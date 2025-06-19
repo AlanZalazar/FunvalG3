@@ -1,0 +1,407 @@
+#calculadora-container {
+  background-color: #1a2b33;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tateti {
+  max-width: 500px;
+}
+
+.casilla {
+  background: #1e3741; /* Color azul de Tailwind (bg-blue-500) */
+  border: none;
+  position: relative;
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* Sombra externa (efecto 3D) */
+  box-shadow: 0 10px 0 rgba(0, 0, 0, 0.5),
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+
+  /* Transición para el efecto de click */
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Efecto al presionar la tecla */
+.casilla:active {
+  transform: translateY(4px); /* Mueve la tecla hacia abajo */
+  box-shadow: 0 0px 0 rgba(0, 0, 0, 0.3),
+    /* Elimina la sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2);
+}
+
+.tu {
+  background-color: #31c4be;
+}
+.empate {
+  background-color: #abbeca;
+}
+.cpu {
+  background-color: #f2b236;
+}
+
+.turno {
+  background: #1e3741;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.5),
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+}
+.ficha {
+}
+.rehacer {
+  background-color: #abbeca;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.5),
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+  /* Transición para el efecto de click */
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.rehacer:active {
+  transform: translateY(4px); /* Mueve la tecla hacia abajo */
+  box-shadow: 0 0px 0 rgba(0, 0, 0, 0.3),
+    /* Elimina la sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2);
+}
+
+.circulo {
+  width: 24px;
+  height: 24px;
+  border: 7px solid #f2b236; /* Color del borde */
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.equis {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+.equis::before,
+.equis::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background: #31c4be; /* Color de la X */
+  top: 34%;
+}
+.equis::before {
+  transform: rotate(45deg);
+}
+.equis::after {
+  transform: rotate(-45deg);
+}
+
+/* Clase que dibuja la equis */
+.casilla.active-x::before,
+.casilla.active-x::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 10px;
+  background-color: #31c4be; /* Color de la equis */
+  top: 45%;
+  left: 10%;
+  border-radius: 5px;
+  border-top: 15px solid #31c4be;
+  transition: background-color 0.3s ease;
+}
+
+.casilla.active-x::before {
+  transform: rotate(45deg);
+}
+
+.casilla.active-x::after {
+  transform: rotate(-45deg);
+}
+
+.casilla.active-o::before {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  border: 18px solid #f2b236; /* Color diferente para distinguir */
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: border-color 0.3s ease;
+}
+
+.turno {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #abbeca;
+  font-weight: 600;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.casilla.ficha-ganadora.active-x::before,
+.casilla.ficha-ganadora.active-x::after {
+  background-color: #1e3741 !important;
+  background-color: #1e3741;
+  border-top: 15px solid #1e3741;
+}
+
+.casilla.ficha-ganadora.active-o::before {
+  border-color: #1e3741 !important;
+}
+
+.circulo-claro {
+  width: 24px;
+  height: 24px;
+  border: 7px solid #abbeca; /* Color del borde */
+  border-radius: 50%;
+  background-color: transparent;
+}
+.circulo-oscuro {
+  width: 24px;
+  height: 24px;
+  border: 7px solid #1a2b33; /* Color del borde */
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.equis-oscuro {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+.equis-oscuro::before,
+.equis-oscuro::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background: #1a2b33; /* Color de la X */
+  top: 34%;
+  left: -5%;
+}
+.equis-oscuro::before {
+  transform: rotate(45deg);
+}
+.equis-oscuro::after {
+  transform: rotate(-45deg);
+}
+
+.equis-clara {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+.equis-clara::before,
+.equis-clara::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background: #abbeca; /* Color de la X */
+  top: 34%;
+  left: -5%;
+}
+.equis-clara::before {
+  transform: rotate(45deg);
+}
+.equis-clara::after {
+  transform: rotate(-45deg);
+}
+
+.option-equis {
+}
+
+.option-circulo {
+  background-color: #abbeca;
+}
+
+.caja-optiones {
+  background-color: #1e3741;
+  box-shadow: 0 7px 0 #131d22,
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+}
+
+.caja-botones {
+  background-color: #1a2b33;
+  height: 70px;
+}
+
+.titulo-opcion {
+  color: #abbeca;
+}
+
+.parrafo-opcion {
+  color: #abbeca9a;
+}
+
+.tecla-juego-cpu {
+  background-color: #f2b236;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 7px 0 #b88413,
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.tecla-juego-cpu-dificil {
+  background-color: #4b08c7;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 7px 0 #180144,
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.tecla-juego-jugador {
+  background-color: #31c4be;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 7px 0 #0a636e,
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+#modal-x,
+#modal-o,
+#reiniciar,
+#empate {
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.etiqueta-modal {
+  height: 30%;
+  background-color: #1e3741;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.victoria {
+  color: #abbeca;
+}
+.titulo-reiniciar {
+  color: #abbeca;
+  font-size: 20px;
+}
+.ronda-x {
+  color: #31c4be;
+  font-size: 20px;
+}
+
+.ronda-o {
+  color: #f2b236;
+  font-size: 20px;
+}
+
+.ronda-empate {
+  color: #abbeca;
+  font-size: 20px;
+}
+
+.circulo-xl {
+  width: 35px;
+  height: 35px;
+  border: 10px solid #f2b236; /* Color del borde */
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.equis-xl {
+  width: 35px;
+  height: 35px;
+  position: relative;
+}
+.equis-xl::before,
+.equis-xl::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background: #31c4be; /* Color de la X */
+  top: 28%;
+}
+.equis-xl::before {
+  transform: rotate(45deg);
+}
+.equis-xl::after {
+  transform: rotate(-45deg);
+}
+
+.con-sal-np {
+  display: flex;
+  width: 250px;
+  height: 45px;
+}
+
+.salir {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  background-color: #abbeca;
+  box-shadow: 0 5px 0 #6d757a,
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.nueva-partida {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  background-color: #f2b236;
+  box-shadow: 0 5px 0 #b88413,
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.con-cancelar {
+  display: flex;
+  width: 300px;
+  height: 45px;
+}
+.cancelar {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: #abbeca;
+  box-shadow: 0 5px 0 #6d757a,
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.aceptar-reiniciar {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: #f2b236;
+  box-shadow: 0 5px 0 #b88413,
+    /* Sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2); /* Sombra interna (brillo) */
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.nueva-partida:active,
+.aceptar-reiniciar:active {
+  transform: translateY(4px); /* Mueve la tecla hacia abajo */
+  box-shadow: 0 0px 0 rgba(0, 0, 0, 0.3),
+    /* Elimina la sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2);
+}
+
+.salir:active,
+.cancelar:active,
+.tecla-juego-cpu:active,
+.tecla-juego-jugador:active,
+.tecla-juego-cpu-dificil:active {
+  transform: translateY(4px); /* Mueve la tecla hacia abajo */
+  box-shadow: 0 0px 0 rgba(0, 0, 0, 0.3),
+    /* Elimina la sombra inferior */ inset 0 2px 2px rgba(255, 255, 255, 0.2);
+}

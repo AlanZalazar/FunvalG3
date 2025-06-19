@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <script src="./main.js" defer type="module"></script>
+    <title>Tateti</title>
+  </head>
+  <body class="h-full justify-center items-center">
+    <div id="calculadora-container">
+      <div class="w-[500px]">
+        <!-- Pantalla Config -->
+        <div
+          id="config"
+          class="flex flex-col justify-center items-center hidden"
+        >
+          <div class="flex gap-2 p-6">
+            <div class="equis"></div>
+            <div class="circulo"></div>
+          </div>
+          <div
+            class="caja-optiones w-[90%] rounded-2xl flex flex-col justify-center text-center items-center"
+          >
+            <h2 class="titulo-opcion font-bold py-6">
+              ELIJE LA MARCA DEL JUGADOR 1
+            </h2>
+            <div
+              class="caja-botones w-[90%] h-[60px] rounded-2xl flex justify-center items-center p-2"
+            >
+              <div
+                class="option-equis w-[50%] h-full rounded-xl flex justify-center items-center"
+              >
+                <div id="equis-icon" class="equis-clara"></div>
+              </div>
+              <div
+                class="option-circulo w-[50%] h-full rounded-xl flex justify-center items-center"
+              >
+                <div id="circulo-icon" class="circulo-oscuro"></div>
+              </div>
+            </div>
+            <p class="parrafo-opcion font-semibold py-4">
+              REACUERDA: LA X JUEGA PRIMERO
+            </p>
+          </div>
+          <div
+            class="flex flex-col w-full justify-center items-center gap-6 py-8"
+          >
+            <div
+              class="tecla-juego-cpu rounded-2xl w-[90%] flex justify-center items-center font-bold"
+            >
+              <p>NUEVO JUEGO (VS CPU)</p>
+            </div>
+            <div
+              class="tecla-juego-jugador rounded-2xl w-[90%] flex justify-center items-center font-bold"
+            >
+              <p>NUEVO JUEGO (VS JUGADOR)</p>
+            </div>
+            <div
+              class="tecla-juego-cpu-dificil rounded-2xl w-[90%] flex justify-center items-center font-bold"
+            >
+              <p>MODO HARCORE (VS CPU)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pantalla Tateti -->
+        <div id="tateti" class="block">
+          <div class="flex justify-center items-center">
+            <div class="w-[90%] items-center grid grid-cols-3 gap-4 py-6">
+              <div class="flex items-center h-[40px] gap-2">
+                <div class="equis"></div>
+                <div class="circulo"></div>
+              </div>
+              <div class="turno rounded-xl h-[40px]"></div>
+              <div class="h-[40px] flex justify-end">
+                <div
+                  class="rehacer h-[40px] aspect-square border rounded-xl flex justify-center items-center font-bold"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-rotate-cw"
+                  >
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <path d="M20.49 16a9 9 0 1 1-2.12-9.36L23 10"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full flex justify-center items-center">
+            <div class="w-[90%] aspect-square grid grid-cols-3 gap-4">
+              <div class="casilla border rounded-2xl"></div>
+              <div class="casilla border rounded-2xl"></div>
+              <div class="casilla border rounded-2xl"></div>
+              <div class="casilla border rounded-2xl"></div>
+              <div class="casilla border rounded-2xl"></div>
+              <div class="casilla border rounded-2xl"></div>
+              <div class="casilla border rounded-2xl"></div>
+              <div class="casilla border rounded-2xl"></div>
+              <div class="casilla border rounded-2xl"></div>
+            </div>
+          </div>
+
+          <div class="flex justify-center items-center mt-8">
+            <div class="w-[90%] items-center grid grid-cols-3 gap-4">
+              <div
+                class="tu border rounded-2xl h-[60px] flex flex-col items-center font-bold"
+              ></div>
+              <div
+                class="empate border rounded-2xl h-[60px] flex flex-col items-center font-bold"
+              ></div>
+              <div
+                class="cpu border rounded-2xl h-[60px] flex flex-col items-center font-bold"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div id="modal-x" class="h-full flex hidden">
+        <div class="etiqueta-modal flex-col w-full">
+          <p class="victoria font-bold p-2">¡HAZ GANADO!</p>
+          <div class="flex gap-3 p-2 justify-center">
+            <div class="equis-xl"></div>
+            <h2 class="ronda-x font-bold">HA GANADO ESTA RONDA</h2>
+          </div>
+          <div class="w-full h-[60px] flex justify-center items-center">
+            <div class="con-sal-np flex gap-2">
+              <div class="salir font-bold rounded-xl">SALIR</div>
+              <div class="nueva-partida font-bold rounded-xl">NUEVA RONDA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal2 -->
+      <div id="modal-o" class="h-full flex hidden">
+        <div class="etiqueta-modal flex-col w-full">
+          <p class="victoria font-bold p-2">¡HAZ GANADO!</p>
+          <div class="flex gap-3 p-2 justify-center">
+            <div class="circulo-xl"></div>
+            <h2 class="ronda-o font-bold">HA GANADO ESTA RONDA</h2>
+          </div>
+          <div class="w-full h-[60px] flex justify-center items-center">
+            <div class="con-sal-np flex gap-2">
+              <div class="salir font-bold rounded-xl">SALIR</div>
+              <div class="nueva-partida font-bold rounded-xl">NUEVA RONDA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal3 -->
+      <div id="empate" class="h-full flex hidden">
+        <div class="etiqueta-modal flex-col w-full">
+          <p class="victoria font-bold p-2">¡EMPATE!</p>
+          <div class="flex gap-3 p-2 justify-center">
+            <h2 class="ronda-empate font-bold">HAN EMPATADO LA RONDA</h2>
+          </div>
+          <div class="w-full h-[60px] flex justify-center items-center">
+            <div class="con-sal-np flex gap-2">
+              <div class="salir font-bold rounded-xl">SALIR</div>
+              <div class="nueva-partida font-bold rounded-xl">NUEVA RONDA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal4 -->
+      <div id="reiniciar" class="h-full flex hidden">
+        <div class="etiqueta-modal flex-col w-full">
+          <p class="titulo-reiniciar font-bold p-4">¿REINICIAR JUEGO?</p>
+          <div class="w-full h-[60px] flex justify-center items-center">
+            <div class="con-cancelar flex gap-2">
+              <div class="cancelar font-bold rounded-xl">NO, CANCELAR</div>
+              <div class="aceptar-reiniciar font-bold rounded-xl">
+                SI, REINICIAR
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
